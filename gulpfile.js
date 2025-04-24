@@ -5,6 +5,7 @@ const postcss = require('gulp-postcss');  // подключаем postcss
 const autoprefixer = require('autoprefixer');  // подключаем autoprefixer
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat')
+const uglify =require ('gulp-uglify')
 
 function styles() {
     return src('app/scss/style.scss')
@@ -15,11 +16,21 @@ function styles() {
         .pipe(dest('app/css'));
 }
 
+function scripts(){
+    return src (['app/js/main.js', 
+    'node_modules/jquery/dist/jquery.js'
+    ])
+    .pipe(concat('main.min.js'))
+    .pipe(uglify())
+    .pipe(dest('app/js'))
+}
+
+
 function watchFiles() {
     watch('app/scss/**/*.scss', styles); // следим за изменениями в SCSS
 }
 
-exports.default = series(styles, watchFiles);
+exports.default = series(styles,scripts, watchFiles );
 
 
 
