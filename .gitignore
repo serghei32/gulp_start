@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+
+# Сборка
+dist/
+build/
+
+# Логи
+*.log
+npm-debug.log*
+
+# Окружение
+.env
+
+# Кеши
+.cache/
+.tmp/
+
+# IDE
+.vscode/
+.idea/
+
+# ОС
+.DS_Store
+Thumbs.db
