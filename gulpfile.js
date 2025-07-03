@@ -1,5 +1,5 @@
 const {
-    src,
+    src, 
     dest,
     watch,
     series
