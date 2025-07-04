@@ -1,8 +1,8 @@
-@import 'vars';  //peremennie
-@import 'fonts';  //  
-@import 'global'; // 
-@import 'reset'; // 
-@import 'media';
+@use 'vars';  //peremennie
+@use 'fonts';  //  
+@use 'global'; // 
+@use 'reset'; // 
+@use 'media';
 
 
 .title {
