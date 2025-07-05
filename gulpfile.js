@@ -11,7 +11,7 @@ const autoprefixer = require('autoprefixer'); // подключаем autoprefix
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat')
 const uglify = require('gulp-uglify')
-// const browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync').create();
 
 
 function browsersync() {
@@ -23,22 +23,34 @@ function browsersync() {
 }
 
 function styles() {
+    // Обычный несжатый файл
+    src('app/scss/style.scss')
+        .pipe(gulpSass().on('error', gulpSass.logError))
+        .pipe(postcss([autoprefixer()]))
+        .pipe(concat('style.css'))
+        .pipe(dest('app/css'));
+
+    // Минифицированный файл
     return src('app/scss/style.scss')
         .pipe(gulpSass().on('error', gulpSass.logError))
         .pipe(postcss([autoprefixer()]))
         .pipe(cleanCSS())
         .pipe(concat('style.min.css'))
         .pipe(dest('app/css'))
-        // .pipe(browserSync.stream())
         .on('end', () => console.log('CSS обновлён'));
 }
+
+
+
+
+
 
 
 function scripts() {
     return src(['app/js/main.js',
             'node_modules/jquery/dist/jquery.js'
         ])
-        .pipe(concat('main.min.js'))
+        .pipe(concat('main.min.js')) 
         .pipe(uglify())
         .pipe(dest('app/js'))
 }
@@ -47,7 +59,7 @@ function scripts() {
 function watchFiles() {
     watch(['app/scss/**/*.scss'], styles); // следим за изменениями в SCSS
     watch(['app/js/**/*.js'], scripts)
-    // watch(['app//**/*.html']).on('change', browserSync.reload)
+    watch(['app//**/*.html']).on('change', browserSync.reload)
 
 }
 

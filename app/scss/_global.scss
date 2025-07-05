@@ -1,10 +1,15 @@
 body{
-    display: flex;
-    max-width: 1200px;
-    border: 1px solid red;
-    // background-color: aqua;
-    font-size: 60px;
-    text-align: center;
-    margin: 0 auto;
+color:$dedault-color;
+font-size: 16px;
+font-size: 26px;
+@extend %quicksand-500
+
   
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding:  0 15px;
+
 }
