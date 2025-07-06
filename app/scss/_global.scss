@@ -1,15 +1,13 @@
 body{
 color:$dedault-color;
 font-size: 16px;
-font-size: 26px;
-@extend %quicksand-500
+line-height: 26px;
+@extend %roboto-700;
 
-  
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding:  0 15px;
-
 }

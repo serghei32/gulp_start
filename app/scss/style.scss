@@ -1,7 +1,7 @@
 @import 'vars'; //peremennie
 @import 'fonts'; //  
 @import 'global'; // 
-@import 'reset'; // 
+@import 'reset'; //  
 
 
 
@@ -21,7 +21,7 @@
         display: flex;
         justify-content: space-between;
         text-transform: uppercase;
-        font-size: 14px;
+        // font-size: 14px;
         // @extend %quicksand-400;
         // align-items: center;
     }
@@ -34,16 +34,20 @@
         color: #29282d;
         padding-bottom: 1px;
         transition: all 1s;
+        // @extend %quicksand-400;
+        @extend %roboto-400 ;
 
         &:hover {
             color: $accent-color;
             border-bottom: 1px solid $accent-color;
+            @extend %roboto-700;
         }
     }
 
     &__list-link--active {
         color: $accent-color;
         border-bottom: 1px solid $accent-color;
+        @extend %quicksand-400;
     }
 }
 
@@ -79,8 +83,18 @@
 }
 
 
-
-
+.footer__top{
+    display: flex;
+    border: 1px solid red;
+    &__item{
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        & a{
+            padding-bottom: 20px
+        }
+    }
+}
 
 
 
